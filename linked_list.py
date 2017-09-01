@@ -14,15 +14,15 @@ class Node():
         
 class SingleLinkedList():
     def __init__(self, data=None):
-        self.head = data
+        self.top = data
 
     def insert(self, data):
         new_node = Node(data)
-        new_node.set_next(self.head)
-        self.head = new_node #set the head to the new node added at the end
+        new_node.set_next(self.top)
+        self.top = new_node #set the top to the new node added at the end
 
     def print_list(self):
-        current = self.head
+        current = self.top
         while current:
             print current.get_data()
             current = current.get_next()
