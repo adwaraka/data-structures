@@ -18,6 +18,7 @@ class Node():
     def set_next(self, new_node):
         self.node = new_node
         
+
 class SingleLinkedList():
     def __init__(self, data=None):
         self.top = data
@@ -36,6 +37,22 @@ class SingleLinkedList():
             else:
                 current = current.get_next()
 
+    def delete(self, data):
+        current = self.top
+        previous = None
+        while current:
+            if current.get_data() == data:
+                break
+            else:
+                previous = current #pointing prev where current is before current moves to the next
+                current = current.get_next()
+        if current is None:
+            print "Node not found"
+        if previous is None:
+            self.top = current.get_next() #the top node it self
+        else:
+            previous.set_next(current.get_next())
+            
     def print_list(self):
         current = self.top
         while current:
@@ -45,13 +62,13 @@ class SingleLinkedList():
 def main():
     list = SingleLinkedList()
     list.insert("4")
+    list.insert("15")
     list.insert("5")
-    list.insert("1")
+    list.insert("11")
+    list.insert("19")
     list.insert("9")
+    list.delete("5")
     list.print_list()
-    list.search("1")
-    list.search("-1")
-    list.search("9")
 
 if __name__ == "__main__":
     main()
