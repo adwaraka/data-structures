@@ -1,3 +1,6 @@
+#5
+#5 4 9 0 2
+#0 2 4 5 9
 class Node():
     def __init__(self, data=None):
         self.data = data
