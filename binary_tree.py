@@ -12,16 +12,16 @@ class Node():
 
 def insert(root, node):
     if root is None:
-	    root = node
+        root = node
     else:
         if root.data < node.data:
             if root.right is None:
-		        root.right = node
+                root.right = node
             else:
                 insert(root.right, node)
         else:
             if root.left is None:
-        	    root.left = node
+                root.left = node
             else:
                 insert(root.left, node)
 
@@ -31,6 +31,18 @@ def inorder(root):
         print root.get_data(),
         inorder(root.right)
 
+def maxDepth(node):
+    if node is None:
+        return 0
+    else :
+        lDepth = maxDepth(node.left)
+        rDepth = maxDepth(node.right)
+
+        if (lDepth > rDepth):
+            return lDepth+1
+        else:
+            return rDepth+1
+
 def main():
     N = int(raw_input())
     arr = map(int, raw_input().split(" "))
@@ -39,6 +51,8 @@ def main():
         n = Node(arr[i])
         insert(root, n)
     inorder(root)
+    print "\nHeight:",
+    print maxDepth(root)
 
 if __name__ == "__main__":
     main()
