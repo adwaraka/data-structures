@@ -17,7 +17,6 @@ class Node():
 
     def set_next(self, new_node):
         self.node = new_node
-        
 
 class SingleLinkedList():
     def __init__(self, data=None):
