@@ -6,7 +6,7 @@ def heapify(arr):
             if (arr[i] < arr[2*i + 2]):
                 arr[i], arr[2*i + 2] = arr[2*i + 2], arr[i]
         except:
-            pass	
+            pass
     return arr
 
 arr = [9,6,5,2,3,10]
