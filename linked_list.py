@@ -1,9 +1,3 @@
-#             top
-#              |
-#              |
-#              V
-#  4, 9, 9, 8, 1
-
 class Node():
     def __init__(self, data=None, node=None):
         self.data = data
@@ -18,9 +12,37 @@ class Node():
     def set_next(self, new_node):
         self.node = new_node
 
+#bottom       top
+#  |           |
+#  |           |
+#  V           V
+#  4, 9, 9, 8, 1
+class CircularLinkedList():
+    def __init__(self):
+        self.top = None
+        self.bottom = None
+
+    def insert(self, node):
+        node = Node(node)
+        node.set_next(self.top)
+        self.top = node
+        if self.bottom is None: #for when the first node is added
+            self.bottom = self.top
+        self.top.set_next(self.bottom) #loop back
+
+    def print_end(self):
+        top = self.top
+        print "Top of list", top.get_data()
+        print "Bottom of list", top.get_next().get_data()
+
+#             top
+#              |
+#              |
+#              V
+#  4, 9, 9, 8, 1
 class SingleLinkedList():
-    def __init__(self, data=None):
-        self.top = data
+    def __init__(self):
+        self.top = None
 
     def insert(self, data):
         new_node = Node(data)
@@ -51,7 +73,7 @@ class SingleLinkedList():
             self.top = current.get_next() #the top node it self
         else:
             previous.set_next(current.get_next())
-            
+
     def print_list(self):
         current = self.top
         while current:
@@ -68,6 +90,15 @@ def main():
     list.insert("9")
     list.delete("5")
     list.print_list()
+    print
+    clist = CircularLinkedList()
+    clist.insert("55")
+    clist.insert("52")
+    clist.insert("46")
+    clist.insert("45")
+    clist.insert("51")
+    clist.insert("71")
+    clist.print_end()
 
 if __name__ == "__main__":
     main()
