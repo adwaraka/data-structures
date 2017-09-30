@@ -14,18 +14,35 @@ class Graph:
     def bfs(self, src):
         visited, queue = [], []
         src = str(src)
-        print src,
 
         queue.extend(self.graph[src])
         visited.append(src)
+        print src, queue
         while len(queue) > 0:
             temp = queue.pop(0)
             if temp not in visited and temp is not None:
-                print temp,
+                print temp, queue
                 visited.append(temp)
                 if temp in self.graph:
                     queue.extend(self.graph[temp])
 
+    def dfs(self, src, dest):
+        visited, stack = [], []
+        src = str(src)
+        dest = str(dest)
+
+        stack.extend(self.graph[src])
+        visited.append(src)
+        print src, stack
+        while len(stack) > 0:
+            temp = stack.pop()
+            if temp not in visited and temp is not None:
+                print temp, stack
+                if temp == dest:
+                    break
+                visited.append(temp)
+                if temp in self.graph:
+                    stack.extend(self.graph[temp])
 
 def main():
     g = Graph()
@@ -38,9 +55,12 @@ def main():
     g.add_edge(3,5)
     g.add_edge(3,6)
     g.add_edge(4,7)
-    g.add_edge(4,7)
     g.add_edge(7,0)
+    print "BFS"
     g.bfs(3)
+    print
+    print "DFS"
+    g.dfs(2, 7)
 
 if __name__ == "__main__":
     main()
