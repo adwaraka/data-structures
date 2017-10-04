@@ -20,7 +20,7 @@ class Node:
     def set_down(self, new_node):
         self.down = new_node
 
-class Multilevel_Queue:
+class Multilevel_LinkedList:
     def __init__(self):
         self.top = None
 
@@ -36,13 +36,13 @@ class Multilevel_Queue:
             current = current.get_level()
 
 def main():
-    ml = Multilevel_Queue()
+    ml = Multilevel_LinkedList()
     ml.insert_level("56")
     ml.insert_level("8")
     ml.insert_level("78")
     ml.insert_level("4")
 
-    ml1 = Multilevel_Queue()
+    ml1 = Multilevel_LinkedList()
     ml1.insert_level("90")
     ml1.insert_level("23")
     ml1.insert_level("91")
