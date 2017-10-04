@@ -39,14 +39,14 @@ class SingleLinkedList():
             current = current.get_next()
 
 def main():
-    list = SingleLinkedList()
-    list.insert("4")
-    list.insert("15")
-    list.insert("5")
-    list.insert("11")
-    list.insert("19")
-    list.insert("9")
-    list.print_list()
+    l = SingleLinkedList()
+    l.insert("4")
+    l.insert("15")
+    l.insert("5")
+    l.insert("11")
+    l.insert("19")
+    l.insert("9")
+    l.print_list()
 
 if __name__ == "__main__":
     main()
