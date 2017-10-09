@@ -58,6 +58,16 @@ class SingleLinkedList():
             else:
                 current = current.get_next()
 
+    def reverse_list(self):
+        current = self.top
+        previous = None
+        while (current is not None):
+            temp = current.get_next()
+            current.set_next(previous)
+            previous = current
+            current = temp
+        self.top = previous
+
     def delete(self, data):
         current = self.top
         previous = None
@@ -89,6 +99,9 @@ def main():
     list.insert("19")
     list.insert("9")
     list.delete("5")
+    list.print_list()
+    print
+    list.reverse_list()
     list.print_list()
     print
     clist = CircularLinkedList()
