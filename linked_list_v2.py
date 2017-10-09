@@ -34,13 +34,14 @@ class SingleLinkedList():
 
     def reverse_list(self):
         current = self.start
+        self.end = current #we need this for setting the new end
         previous = None
         while (current is not None):
             temp = current.get_next()
             current.set_next(previous)
             previous = current
             current = temp
-        self.start = previous
+        self.start = previous #we need this for setting the new start
 
     def print_list(self):
         current = self.start
@@ -61,6 +62,8 @@ def main():
     print
     l.reverse_list()
     l.print_list()
+    print
+    print l.start.get_data(), l.end.get_data()
 
 if __name__ == "__main__":
     main()
