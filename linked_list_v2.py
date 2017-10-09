@@ -32,6 +32,16 @@ class SingleLinkedList():
             self.end.set_next(new_node)
             self.end = new_node
 
+    def reverse_list(self):
+        current = self.start
+        previous = None
+        while (current is not None):
+            temp = current.get_next()
+            current.set_next(previous)
+            previous = current
+            current = temp
+        self.start = previous
+
     def print_list(self):
         current = self.start
         while current:
@@ -40,12 +50,16 @@ class SingleLinkedList():
 
 def main():
     l = SingleLinkedList()
-    l.insert("4")
+    l.insert("-4")
     l.insert("15")
-    l.insert("5")
-    l.insert("11")
+    l.insert("50")
+    l.insert("-50")
+    l.insert("-11")
     l.insert("19")
-    l.insert("9")
+    l.insert("39")
+    l.print_list()
+    print
+    l.reverse_list()
     l.print_list()
 
 if __name__ == "__main__":
