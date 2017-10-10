@@ -32,6 +32,7 @@ class SingleLinkedList():
             print current.get_data()
             current = current.get_next()
 
+
 def merge_list(head1, head2):
     new_list_head = None
     set_new_head = None
@@ -80,6 +81,7 @@ def merge_list(head1, head2):
 
 def main():
     l1 = SingleLinkedList()
+    l1.insert("-5")
     l1.insert("15")
     l1.insert("50")
     l1.insert("55")
