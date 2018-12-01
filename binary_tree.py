@@ -31,6 +31,18 @@ def inorder(root):
         print root.get_data(),
         inorder(root.right)
 
+def preorder(root):
+    if root is not None:
+        print root.get_data(),
+        preorder(root.left)
+        preorder(root.right)
+
+def postorder(root):
+    if root is not None:
+        postorder(root.left)
+        postorder(root.right)
+        print root.get_data(),
+
 def maxDepth(node):
     if node is None:
         return 0
@@ -50,7 +62,12 @@ def main():
     for i in xrange(1, N):
         n = Node(arr[i])
         insert(root, n)
+    print "Inorder"
     inorder(root)
+    print "\nPreorder"
+    preorder(root)
+    print "\nPostorder"
+    postorder(root)
     print "\nHeight:",
     print maxDepth(root)
 
