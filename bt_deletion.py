@@ -52,7 +52,6 @@ class Node(object):
         current = node
         while(current.leftChild is not None):
             current = current.leftChild
-
         return current
 
     def delete(self, data):
