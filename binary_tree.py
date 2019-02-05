@@ -55,6 +55,22 @@ def maxDepth(node):
         else:
             return rDepth+1
 
+def flatten(root):
+    if root == None:
+        return None
+    else:
+        flatten(root.left)
+        flatten(root.right)
+        current = root
+        if current.left == None:
+            return
+        current = current.left
+        while current.right:
+            current = current.right
+        current.right = root.right
+        root.right = root.left
+        root.left = None
+
 def main():
     N = int(raw_input())
     arr = map(int, raw_input().split(" "))
@@ -70,6 +86,12 @@ def main():
     postorder(root)
     print "\nHeight:",
     print maxDepth(root)
+    print
+    print "\nFlatten"
+    flatten(root)
+    while root:
+        print root.data
+        root = root.right
 
 if __name__ == "__main__":
     main()
